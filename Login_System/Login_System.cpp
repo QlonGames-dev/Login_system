@@ -24,7 +24,7 @@ int main()
 
     while (cin >> choice)
     {
-        char ch = atoi(&choice);
+        int ch = atoi(&choice);
 
         switch (ch)
         {
