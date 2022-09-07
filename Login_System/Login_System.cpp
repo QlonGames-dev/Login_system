@@ -9,7 +9,7 @@ void Register();
 void Login();
 void Exit();
 
-static bool is_login = false;
+static bool isLoggedIn = false;
 
 int main()
 {
@@ -69,7 +69,7 @@ void Login()
 {
     string username, password, un, pw;
 
-    if (is_login)
+    if (isLoggedIn)
     {
         cout << "Вы уже авторизованы.\n";
     }
@@ -88,7 +88,7 @@ void Login()
         if (un == username && pw == password)
         {
             cout << "Вы вошли в систему.\n";
-            is_login = true;
+            isLoggedIn = true;
         }
         else
         {
@@ -99,10 +99,10 @@ void Login()
 
 void Exit()
 {
-    if (is_login)
+    if (isLoggedIn)
     {
         cout << "Вы вышли из системы.\n";
-        is_login = false;
+        isLoggedIn = false;
     }
     else
     {
