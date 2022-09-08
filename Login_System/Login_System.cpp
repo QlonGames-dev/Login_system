@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <fstream>
 #include <string>
 #include <cctype>
@@ -11,23 +11,20 @@ void Exit();
 
 static bool isLoggedIn = false;
 
-int main()
-{
-    setlocale(LC_ALL, "rus");
+int main() {
+  setlocale(LC_ALL, ".ACP");
 
-    char choice = 0;
+  char choice = 0;
 
-    cout << "Регистрация: 1\n"
+  cout << "Регистрация: 1\n"
         << "Войти: 2\n"
         << "Выйти: 3\n"
         << "<< ";
 
-    while (cin >> choice)
-    {
+    while (cin >> choice) {
         int ch = atoi(&choice);
 
-        switch (ch)
-        {
+        switch (ch) {
         case 1:
             Register();
             break;
@@ -40,15 +37,12 @@ int main()
         default:
             cout << "Вы ввели неверное значение. Повторите снова.\n";
         }
-
         cout << "<< ";
     }
-    
     return 0;
 }
 
-void Register()
-{
+void Register() {
     string username, password;
 
     cout << "Введите имя для регистрации: ";
@@ -65,16 +59,12 @@ void Register()
     cout << "Регистрация выполнена успешно.\n";
 }
 
-void Login()
-{
+void Login() {
     string username, password, un, pw;
 
-    if (isLoggedIn)
-    {
+    if (isLoggedIn) {
         cout << "Вы уже авторизованы.\n";
-    }
-    else
-    {
+    } else {
         cout << "Введите имя для входа: ";
         cin >> username;
 
@@ -85,27 +75,20 @@ void Login()
         getline(read, un);
         getline(read, pw);
 
-        if (un == username && pw == password)
-        {
+        if (un == username && pw == password) {
             cout << "Вы вошли в систему.\n";
             isLoggedIn = true;
-        }
-        else
-        {
+        } else {
             cout << "Вы ввели неправильный логин или пароль.\n";
         }
     }
 }
 
-void Exit()
-{
-    if (isLoggedIn)
-    {
+void Exit() {
+    if (isLoggedIn) {
         cout << "Вы вышли из системы.\n";
         isLoggedIn = false;
-    }
-    else
-    {
+    } else {
         cout << "Вы не авторизованы.\n";
     }
 }
