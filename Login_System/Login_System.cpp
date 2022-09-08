@@ -12,11 +12,11 @@ void Exit();
 static bool isLoggedIn = false;
 
 int main() {
-  setlocale(LC_ALL, "rus");
+    setlocale(LC_ALL, "rus");
 
-  char choice = 0;
+    char choice = 0;
 
-  cout << "Регистрация: 1\n"
+    cout << "Регистрация: 1\n"
         << "Войти: 2\n"
         << "Выйти: 3\n"
         << "<< ";
