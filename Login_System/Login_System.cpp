@@ -12,7 +12,7 @@ void Exit();
 static bool isLoggedIn = false;
 
 int main() {
-  setlocale(LC_ALL, ".ACP");
+  setlocale(LC_ALL, "rus");
 
   char choice = 0;
 
