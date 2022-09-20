@@ -22,7 +22,7 @@ int main() {
         << "<< ";
 
     while (cin >> choice) {
-        int ch = atoi(&choice);
+        int ch = atoi(&choice); // перевод строки в число
 
         switch (ch) {
         case 1:
