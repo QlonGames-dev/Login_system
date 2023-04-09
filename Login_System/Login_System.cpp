@@ -43,6 +43,10 @@ int main() {
 }
 
 void Register() {
+    if (isLoggedIn) {                                    //Проверка для регистрации
+        cout << "Выйдите из системы для регистрации.\n"; //если пользователь в системе
+        return;
+    }
     string username, password;
 
     cout << "Введите имя для регистрации: ";
