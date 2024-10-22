@@ -3,8 +3,6 @@
 #include <string>
 #include <cctype>
 
-using namespace std;
-
 void Register();
 void Login();
 void Exit();
@@ -16,12 +14,12 @@ int main() {
 
     char choice = 0;
 
-    cout << "Регистрация: 1\n"
+    std::cout << "Регистрация: 1\n"
         << "Войти: 2\n"
         << "Выйти: 3\n"
         << "<< ";
 
-    while (cin >> choice) {
+    while (std::cin >> choice) {
         int ch = atoi(&choice); // перевод строки в число
 
         switch (ch) {
@@ -35,7 +33,7 @@ int main() {
             Exit();
             break;
         default:
-            cout << "Вы ввели неверное значение. Повторите снова.\n";
+            std::cout << "Вы ввели неверное значение. Повторите снова.\n";
         }
         cout << "<< ";
     }
@@ -44,55 +42,55 @@ int main() {
 
 void Register() {
     if (isLoggedIn) {                                    //Проверка для регистрации
-        cout << "Выйдите из системы для регистрации.\n"; //если пользователь в системе
+        std::cout << "Выйдите из системы для регистрации.\n"; //если пользователь в системе
         return;
     }
-    string username, password;
+    std::string username, password;
 
-    cout << "Введите имя для регистрации: ";
-    cin >> username;
+    std::cout << "Введите имя для регистрации: ";
+    std::cin >> username;
 
-    cout << "Введите пароль для регистрации: ";
-    cin >> password;
+    std::cout << "Введите пароль для регистрации: ";
+    std::cin >> password;
 
     ofstream file;
     file.open("c:\\" + username + ".txt");
     file << username << endl << password;
     file.close();
 
-    cout << "Регистрация выполнена успешно.\n";
+    std::cout << "Регистрация выполнена успешно.\n";
 }
 
 void Login() {
-    string username, password, un, pw;
+    std::string username, password, un, pw;
 
     if (isLoggedIn) {
-        cout << "Вы уже авторизованы.\n";
+        std::cout << "Вы уже авторизованы.\n";
     } else {
-        cout << "Введите имя для входа: ";
-        cin >> username;
+        std::cout << "Введите имя для входа: ";
+        std::cin >> username;
 
-        cout << "Введите пароль для входа: ";
-        cin >> password;
+        std::cout << "Введите пароль для входа: ";
+        std::cin >> password;
 
         ifstream read("c:\\" + username + ".txt");
         getline(read, un);
         getline(read, pw);
 
         if (un == username && pw == password) {
-            cout << "Вы вошли в систему.\n";
+            std::cout << "Вы вошли в систему.\n";
             isLoggedIn = true;
         } else {
-            cout << "Вы ввели неправильный логин или пароль.\n";
+            std::cout << "Вы ввели неправильный логин или пароль.\n";
         }
     }
 }
 
 void Exit() {
     if (isLoggedIn) {
-        cout << "Вы вышли из системы.\n";
+        std::cout << "Вы вышли из системы.\n";
         isLoggedIn = false;
     } else {
-        cout << "Вы не авторизованы.\n";
+        std::cout << "Вы не авторизованы.\n";
     }
 }
